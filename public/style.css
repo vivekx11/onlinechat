@@ -1,0 +1,390 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Orbitron', sans-serif;
+    background: #0d0d1a;
+    color: #e0e0ff;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Container */
+.container {
+    width: 100%;
+    max-width: 1000px;
+    background: #1b1b2e;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+    overflow: hidden;
+}
+
+/* Common styles */
+#role-selection, #admin-section, #user-section, #admin-room-section, #user-chat-section {
+    padding: 40px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px #00ccff;
+}
+
+input, button {
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-family: 'Orbitron', sans-serif;
+}
+
+input {
+    width: 100%;
+    max-width: 300px;
+    background: #2a2a4a;
+    color: #e0e0ff;
+    box-shadow: 0 0 5px rgba(0, 255, 255, 0.3);
+}
+
+input::placeholder {
+    color: #9999cc;
+}
+
+input:focus {
+    outline: none;
+    box-shadow: 0 0 10px #00ccff;
+}
+
+button {
+    background: linear-gradient(45deg, #00ccff, #ff00ff);
+    color: #fff;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+}
+
+button:active {
+    transform: scale(1);
+}
+
+/* Role Selection */
+#role-selection p {
+    margin-bottom: 30px;
+    font-size: 1.2rem;
+}
+
+#admin-btn, #user-btn {
+    width: 150px;
+    margin: 0 15px;
+}
+
+#admin-btn {
+    background: linear-gradient(45deg, #ff00ff, #ff6666);
+}
+
+#admin-btn:hover {
+    box-shadow: 0 0 15px rgba(255, 0, 255, 0.5);
+}
+
+#user-btn {
+    background: linear-gradient(45deg, #00ccff, #66ffcc);
+}
+
+/* Admin Room Interface */
+#admin-room-section {
+    display: flex;
+    flex-direction: column;
+    height: 600px;
+}
+
+#room-info {
+    padding: 20px;
+    background: #2a2a4a;
+    border-bottom: 1px solid #00ccff;
+}
+
+#room-name-display {
+    font-size: 1.8rem;
+}
+
+#room-password-display {
+    font-size: 1.2rem;
+    color: #9999cc;
+}
+
+#join-requests {
+    padding: 20px;
+    background: #22223a;
+}
+
+#requests-list {
+    list-style: none;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+#requests-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    margin: 10px 0;
+    background: #2a2a4a;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+    animation: slideIn 0.3s ease;
+}
+
+#requests-list button {
+    padding: 8px 15px;
+    font-size: 0.9rem;
+}
+
+.accept-btn {
+    background: linear-gradient(45deg, #00ff99, #00ccff);
+}
+
+.accept-btn:hover {
+    box-shadow: 0 0 10px #00ff99;
+}
+
+.reject-btn {
+    background: linear-gradient(45deg, #ff6666, #ff00ff);
+}
+
+.reject-btn:hover {
+    box-shadow: 0 0 10px #ff6666;
+}
+
+/* User Section */
+#join-status {
+    margin-top: 15px;
+    font-size: 1.2rem;
+    color: #ff6666;
+    text-shadow: 0 0 5px #ff6666;
+}
+
+/* Chat Section */
+#chat-section {
+    display: flex;
+    flex: 1;
+}
+
+#users-list {
+    width: 250px;
+    background: #22223a;
+    padding: 20px;
+    border-right: 1px solid #00ccff;
+}
+
+#users-list h3 {
+    margin-bottom: 15px;
+    text-shadow: 0 0 5px #00ccff;
+}
+
+#users {
+    list-style: none;
+}
+
+#users li {
+    padding: 10px;
+    margin: 5px 0;
+    background: #2a2a4a;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 255, 255, 0.2);
+    transition: transform 0.2s;
+}
+
+#users li:hover {
+    transform: translateX(5px);
+}
+
+#chat-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+#typing-indicator {
+    padding: 10px;
+    color: #9999cc;
+    font-style: italic;
+    text-align: center;
+    animation: pulse 1.5s infinite;
+}
+
+#messages {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #00ccff #22223a;
+}
+
+#messages::-webkit-scrollbar {
+    width: 8px;
+}
+
+#messages::-webkit-scrollbar-thumb {
+    background: #00ccff;
+    border-radius: 4px;
+}
+
+.message {
+    display: flex;
+    margin-bottom: 15px;
+    animation: slideIn 0.3s ease;
+}
+
+.message.self {
+    justify-content: flex-end;
+}
+
+.message .avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin: 0 10px;
+    box-shadow: 0 0 5px rgba(0, 255, 255, 0.3);
+}
+
+.message .bubble {
+    max-width: 70%;
+    padding: 12px 18px;
+    border-radius: 15px;
+    background: #00ccff;
+    color: #fff;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+}
+
+.message.self .bubble {
+    background: #ff00ff;
+    box-shadow: 0 0 10px rgba(255, 0, 255, 0.3);
+}
+
+.message .username {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+    text-shadow: 0 0 5px #00ccff;
+}
+
+.message.self .username {
+    text-shadow: 0 0 5px #ff00ff;
+}
+
+.notification {
+    text-align: center;
+    color: #9999cc;
+    font-style: italic;
+    margin: 15px 0;
+    animation: fadeIn 0.5s ease;
+}
+
+#input-area {
+    display: flex;
+    padding: 15px;
+    background: #22223a;
+    border-top: 1px solid #00ccff;
+}
+
+#message-input {
+    flex: 1;
+    margin-right: 10px;
+    background: #2a2a4a;
+    box-shadow: 0 0 5px rgba(0, 255, 255, 0.3);
+}
+
+#send-btn {
+    padding: 12px 25px;
+}
+
+/* Animations */
+@keyframes slideIn {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 0.7;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        margin: 10px;
+    }
+
+    #admin-room-section, #user-chat-section {
+        height: auto;
+    }
+
+    #chat-section {
+        flex-direction: column;
+    }
+
+    #users-list {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #00ccff;
+    }
+
+    #chat-container {
+        height: 400px;
+    }
+}
+
+@media (max-width: 480px) {
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    input, button {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+
+    #requests-list li {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+/* Accessibility */
+:focus-visible {
+    outline: 2px solid #00ccff;
+    outline-offset: 2px;
+}
