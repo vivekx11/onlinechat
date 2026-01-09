@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat App with Admin</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Role Selection -->
+        <div id="role-selection">
+            <h2>Welcome to Neon Chat</h2>
+            <p>Are you an Admin or a User?</p>
+            <button id="admin-btn">Admin</button>
+            <button id="user-btn">User</button>
+        </div>
+
+        <!-- Admin Create Room -->
+        <div id="admin-section" style="display: none;">
+            <h2>Create Chat Room</h2>
+            <input type="text" id="room-name" placeholder="Room Name" autocomplete="off"><br>
+            <input type="password" id="room-password" placeholder="Set Password" autocomplete="off"><br>
+            <button id="create-room-btn">Create Room</button>
+        </div>
+
+        <!-- Admin Room Interface -->
+        <div id="admin-room-section" style="display: none;">
+            <div id="room-info">
+                <h2 id="room-name-display"></h2>
+                <p id="room-password-display"></p>
+            </div>
+            <div id="join-requests">
+                <h3>Lobby (Pending Requests)</h3>
+                <ul id="requests-list"></ul>
+            </div>
+            <div id="chat-section">
+                <div id="users-list">
+                    <h3>Online Users</h3>
+                    <ul id="users"></ul>
+                </div>
+                <div id="chat-container">
+                    <div id="typing-indicator" style="display: none;">Someone is typing...</div>
+                    <div id="messages"></div>
+                    <div id="input-area">
+                        <input type="text" id="message-input" placeholder="Type a message..." autocomplete="off">
+                        <button id="send-btn">Send</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- User Join Room -->
+        <div id="user-section" style="display: none;">
+            <h2>Join Chat Room</h2>
+            <input type="text" id="user-name" placeholder="Your Name" autocomplete="off"><br>
+            <input type="text" id="join-room-name" placeholder="Room Name" autocomplete="off"><br>
+            <input type="password" id="join-room-password" placeholder="Room Password" autocomplete="off"><br>
+            <button id="join-room-btn">Request to Join</button>
+            <p id="join-status" style="display: none;"></p>
+        </div>
+
+        <!-- User Chat Room -->
+        <div id="user-chat-section" style="display: none;">
+            <div id="chat-section">
+                <div id="users-list">
+                    <h3>Online Users</h3>
+                    <ul id="users"></ul>
+                </div>
+                <div id="chat-container">
+                    <div id="typing-indicator" style="display: none;">Someone is typing...</div>
+                    <div id="messages"></div>
+                    <div id="input-area">
+                        <input type="text" id="message-input" placeholder="Type a message..." autocomplete="off">
+                        <button id="send-btn">Send</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="client.js"></script>
+</body>
+</html>
